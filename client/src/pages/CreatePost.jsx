@@ -7,11 +7,13 @@ import { FormField, Loader } from "../components";
 
 export default function CreatePost() {
   const navigate = useNavigate();
+
   const [form, setForm] = useState({
     name: "",
     prompt: "",
     photo: "",
   });
+
   const [generatingImage, setGeneratingImage] = useState(false);
   const [loading, setLoading] = useState(false);
 
@@ -41,9 +43,8 @@ export default function CreatePost() {
 
   const handleSubmit = () => {};
 
-  const handleChange = (e) => {
+  const handleChange = (e) =>
     setForm({ ...form, [e.target.name]: e.target.value });
-  };
 
   const handleSurpriseMe = () => {
     const randomPrompt = getRandomPrompt(form.prompt);
@@ -71,7 +72,7 @@ export default function CreatePost() {
           <FormField
             labelName="Prompt"
             type="text"
-            name="name"
+            name="prompt"
             placeholder="An Impressionist oil painting of sunflowers in a purple vase…"
             value={form.prompt}
             onChange={handleChange}
@@ -85,7 +86,7 @@ export default function CreatePost() {
             {form.photo ? (
               <img
                 src={form.photo}
-                alt={form.photo}
+                alt={form.name}
                 className="w-full h-full object-contain"
               />
             ) : (

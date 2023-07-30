@@ -31,6 +31,7 @@ export default function FormField({
       <input
         type={type}
         id={name}
+        name={name}
         placeholder={placeholder}
         value={value}
         onChange={onChange}
